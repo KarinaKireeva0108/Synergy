@@ -1,0 +1,20 @@
+# Запрашиваем у пользователя ввод слова
+word = input("Введите слово из маленьких латинских букв: ")
+# Определяем гласные и согласные буквы
+vowels = "aeiou"
+vowel_count = {v: 0 for v in vowels}
+consonant_count = 0
+# Проходим по каждой букве в слове
+for letter in word:
+    if letter in vowels:
+        vowel_count[letter] += 1  # Увеличиваем счетчик для соответствующей гласной
+    elif letter.isalpha():  # Проверяем, что это буква
+        consonant_count += 1  # Увеличиваем счетчик согласных
+# Проверяем, есть ли хотя бы одна из гласных
+if any(count == 0 for count in vowel_count.values()):
+    print(False)
+else:
+    print("Количество гласных букв:")
+    for v in vowels:
+        print(f"{v}: {vowel_count[v]}")
+    print(f"Количество согласных букв: {consonant_count}")
