@@ -1,0 +1,22 @@
+# Запрашиваем у пользователя пятизначное целое число
+number = int(input("Введите пятизначное целое число: "))
+# Извлекаем цифры числа
+ten_thousands = number // 10000 % 10  # десятки тысяч
+thousands = number // 1000 % 10        # тысячи
+hundreds = number // 100 % 10          # сотни
+tens = number // 10 % 10                # десятки
+units = number % 10                     # единицы
+# Возводим количество десятков в степень количества единиц
+result = (tens ** units) * hundreds
+# Вычисляем разность между количеством десятков тысяч и количеством тысяч
+difference = ten_thousands - thousands
+# Проверяем, чтобы разность не была равна нулю, чтобы избежать деления на ноль
+if difference != 0:
+    final_result = result / difference
+else:
+    final_result = None  # или можно обработать ошибку
+# Выводим результат
+if final_result is not None:
+    print(f"Результат: {final_result}")
+else:
+    print("Ошибка: деление на ноль.")
