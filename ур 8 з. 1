@@ -1,0 +1,12 @@
+# Считываем количество чисел
+N = int(input("Введите число N: "))
+# Считываем N чисел в список
+numbers = []
+for _ in range(N):
+    number = int(input())
+    numbers.append(number)
+# Переворачиваем список
+reversed_numbers = numbers[::-1]
+# Выводим перевернутый массив
+for num in reversed_numbers:
+    print(num)
