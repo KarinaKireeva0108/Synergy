@@ -1,0 +1,10 @@
+# Считываем первый список чисел
+n1 = int(input())
+list1 = set(int(input()) for _ in range(n1))
+# Считываем второй список чисел
+n2 = int(input())
+list2 = set(int(input()) for _ in range(n2))
+# Находим пересечение двух множеств
+common_numbers = list1.intersection(list2)
+# Выводим количество общих чисел
+print(len(common_numbers))
