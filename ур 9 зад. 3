@@ -1,0 +1,13 @@
+# Считываем входную строку и разбиваем её на числа
+numbers = input().split()
+# Создаем пустое множество для хранения встреченных чисел
+seen_numbers = set()
+# Проходим по каждому числу в последовательности
+for number in numbers:
+    # Проверяем, встречалось ли число ранее
+    if number in seen_numbers:
+        print("YES")
+    else:
+        print("NO")
+        # Добавляем число в множество
+        seen_numbers.add(number)
