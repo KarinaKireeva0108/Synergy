@@ -1,0 +1,31 @@
+class Kassa:
+    def __init__(self):
+        self.current_amount = 0  # Текущее количество денег в кассе
+    def top_up(self, X):
+        """Пополнить кассу на X"""
+        if X > 0:
+            self.current_amount += X
+            print(f"Касса пополнена на {X} единиц. Текущая сумма: {self.current_amount}")
+        else:
+            print("Сумма пополнения должна быть положительной!")
+    def count_1000(self):
+        """Выводит, сколько целых тысяч осталось в кассе"""
+        return self.current_amount // 1000
+    def take_away(self, X):
+        """Забрать X из кассы, либо выкинуть ошибку, что не достаточно денег"""
+        if X <= self.current_amount:
+            self.current_amount -= X
+            print(f"Из кассы забрано {X} единиц. Текущая сумма: {self.current_amount}")
+        else:
+            raise ValueError("Недостаточно денег в кассе!")
+# Пример использования класса Kassa
+kassa = Kassa()
+kassa.top_up(5000)  # Пополнение на 5000
+print(f"Целых тысяч в кассе: {kassa.count_1000()}")  # Подсчет целых тысяч
+kassa.take_away(3000)  # Забираем 3000
+print(f"Целых тысяч в кассе: {kassa.count_1000()}")  # Подсчет целых тысяч
+try:
+    kassa.take_away(3000)  # Пытаемся забрать еще 3000
+except ValueError as e:
+    print(e)  # Обработка ошибки
+
